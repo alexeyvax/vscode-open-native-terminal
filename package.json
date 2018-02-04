@@ -23,8 +23,7 @@
     "open in terminal",
     "open terminal",
     "native terminal",
-    "terminal",
-    "shell"
+    "terminal"
   ],
   "engines": {
     "vscode": "^1.19.0"
