@@ -30,11 +30,11 @@ export const checkEmptyPath = (path: string): string|void => {
 
 export const getRightPath = (path: string): string => {
   if (fs.lstatSync(path).isDirectory()) {
-    return path.replace(/\s/, '\\ ');
+    return path.replace(/\s/g, '\\ ');
   } else {
     const pathToParentDir = path.replace(/(\/|\\)?([^\/\\]*)(\/*|\*)$/, '');
     if (fs.lstatSync(pathToParentDir).isDirectory()) {
-      return pathToParentDir.replace(/\s/, '\\ ');
+      return pathToParentDir.replace(/\s/g, '\\ ');
     } else {
       getRightPath(pathToParentDir);
     }
