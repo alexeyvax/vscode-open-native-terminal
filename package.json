@@ -2,7 +2,7 @@
     "name": "vscode-open-native-terminal",
     "displayName": "open native terminal",
     "description": "Open native terminal for vscode",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "licence": "MIT",
     "publisher": "alexeyvax",
     "author": {
