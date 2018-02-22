@@ -64,5 +64,4 @@ export const checkCurrentOS = (path: string): void => {
     default:
       chooseLinuxTerminal(path);
   }
-  vscode.window.showInformationMessage('Terminal has been opened!');
 };
