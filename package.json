@@ -3,7 +3,7 @@
     "displayName": "open native terminal",
     "description": "Open native terminal for vscode",
     "version": "1.1.4",
-    "licence": "MIT",
+    "license": "MIT",
     "publisher": "alexeyvax",
     "author": {
         "name": "alexeyvax",
