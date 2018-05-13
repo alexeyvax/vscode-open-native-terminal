@@ -12,7 +12,7 @@ then select option called **Open in native terminal**
 
 Also we can add your default terminal to settings.json
 
-use "open-native-terminal.use-default-terminal" with your love terminal:
+use "open-native-terminal.use-default-terminal" with your favorite terminal:
 - **gnome-terminal**,
 - **konsole**,
 - **mate-terminal**,
