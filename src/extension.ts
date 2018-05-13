@@ -15,6 +15,7 @@ export function activate(context: vscode.ExtensionContext): void {
         checkEmptyPath,
         getRightPath,
         checkExistingPath,
+        checkEmptyPath,
       )(e.fsPath);
     }
   );

@@ -3,10 +3,14 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import { exec } from 'child_process';
-import { GNOME, GNOME_CLASSIC, KDE_PLASMA, platforms } from '../constants';
+import { terminals, platforms, config, messages } from '../constants';
 
+const showErrorMessage = message => vscode.window.showErrorMessage(message);
+const showInfoTooltip = message => (
+  getSettings(config.SHOW_TOOLTIPS) && vscode.window.showInformationMessage(message)
+);
 const getSettings = (name: string): string|void => {
-  const settings = vscode.workspace.getConfiguration('open-native-terminal');
+  const settings = vscode.workspace.getConfiguration(config.RULE_NAME);
   return settings.get(name);
 };
 
@@ -19,7 +23,7 @@ export const checkExistingPath = (path: string): string|void => {
   if (fs.existsSync(path)) {
     return path;
   } else {
-    vscode.window.showErrorMessage('Oops, the path is wrong, please try again');
+    showErrorMessage(messages.EXIST_PATH);
     return;
   }
 };
@@ -28,7 +32,7 @@ export const checkEmptyPath = (path: string): string|void => {
   if (path) {
     return path;
   } else {
-    vscode.window.showErrorMessage('Oops, the path is empty, please try again');
+    showErrorMessage(messages.EMPTY_PATH);
     return;
   }
 };
@@ -36,34 +40,37 @@ export const checkEmptyPath = (path: string): string|void => {
 export const getRightPath = (path: string): string => {
   if (fs.lstatSync(path).isDirectory()) {
     return path.replace(/\s/g, '\\ ');
-  } else {
-    const pathToParentDir = path.replace(/(\/|\\)?([^\/\\]*)(\/*|\*)$/, '');
-    if (fs.lstatSync(pathToParentDir).isDirectory()) {
-      return pathToParentDir.replace(/\s/g, '\\ ');
-    } else {
-      getRightPath(pathToParentDir);
-    }
   }
+
+  const pathToParentDir = path.replace(/(\/|\\)?([^\/\\]*)(\/*|\*)$/, '');
+  if (fs.lstatSync(pathToParentDir).isDirectory()) {
+    return pathToParentDir.replace(/\s/g, '\\ ');
+  }
+
+  getRightPath(pathToParentDir);
 };
 
 export const chooseLinuxTerminal = (path: string): void => {
-  const defaultTerminal = getSettings('use-default-terminal');
+  const defaultTerminal = getSettings(config.DEFAULT_TERMINAL);
   if (defaultTerminal) {
     exec(`cd ${path} && ${defaultTerminal}`);
+    showInfoTooltip(messages.OPEN_TERMINAL);
     return;
   }
 
   switch(true) {
-    case (process.env.DESKTOP_SESSION === GNOME
-      || process.env.DESKTOP_SESSION === GNOME_CLASSIC):
+    case (process.env.DESKTOP_SESSION === terminals.GNOME
+      || process.env.DESKTOP_SESSION === terminals.GNOME_CLASSIC):
       exec(`cd ${path} && gnome-terminal`);
       break;
-    case (process.env.DESKTOP_SESSION === KDE_PLASMA):
+    case (process.env.DESKTOP_SESSION === terminals.KDE_PLASMA):
       exec(`cd ${path} && konsole`);
       break;
     default:
       exec(`cd ${path} && x-terminal-emulator`);
   }
+
+  showInfoTooltip(messages.OPEN_TERMINAL);
 };
 
 export const checkCurrentOS = (path: string): void => {
