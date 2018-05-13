@@ -5,12 +5,17 @@ import * as fs from 'fs';
 import { exec } from 'child_process';
 import { GNOME, GNOME_CLASSIC, KDE_PLASMA, platforms } from '../constants';
 
+const getSettings = (name: string): string|void => {
+  const settings = vscode.workspace.getConfiguration('open-native-terminal');
+  return settings.get(name);
+};
+
 export const compose = (...fns) =>
   fns.reduceRight((prevFn, nextFn) =>
     (...args) => nextFn(prevFn(...args)),
   );
 
-export const checkExistingPath = (path): string|void => {
+export const checkExistingPath = (path: string): string|void => {
   if (fs.existsSync(path)) {
     return path;
   } else {
@@ -42,6 +47,12 @@ export const getRightPath = (path: string): string => {
 };
 
 export const chooseLinuxTerminal = (path: string): void => {
+  const defaultTerminal = getSettings('use-default-terminal');
+  if (defaultTerminal) {
+    exec(`cd ${path} && ${defaultTerminal}`);
+    return;
+  }
+
   switch(true) {
     case (process.env.DESKTOP_SESSION === GNOME
       || process.env.DESKTOP_SESSION === GNOME_CLASSIC):
