@@ -33,7 +33,7 @@ export const checkEmptyPath = (path: string): string|void => {
   }
 };
 
-export const getRightPath = (path: string): string => {
+export const getCorrectPath = (path: string): string => {
   if (fs.lstatSync(path).isDirectory()) {
     return path.replace(/\s/g, '\\ ');
   } else {
@@ -41,7 +41,7 @@ export const getRightPath = (path: string): string => {
     if (fs.lstatSync(pathToParentDir).isDirectory()) {
       return pathToParentDir.replace(/\s/g, '\\ ');
     } else {
-      getRightPath(pathToParentDir);
+      getCorrectPath(pathToParentDir);
     }
   }
 };
@@ -76,3 +76,11 @@ export const checkCurrentOS = (path: string): void => {
       chooseLinuxTerminal(path);
   }
 };
+
+export const getRootPath = (path: string): string => {
+  if (vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders[0].uri) {
+    return vscode.workspace.workspaceFolders[0].uri.fsPath;
+  }
+
+  return getCorrectPath(path);
+}
