@@ -3,6 +3,13 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 1.2.0 2018-09-01
+
+### Added
+- Ability to open native terminal on the root folder [Implemented this issue](https://github.com/alexeyvax/vscode-open-native-terminal/issues/7)
+
+
+
 ## 1.1.5 2018-05-13
 
 ### Added
