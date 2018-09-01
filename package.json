@@ -32,7 +32,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.openNativeTerminal"
+        "onCommand:extension.openNativeTerminal",
+        "onCommand:extension.openNativeTerminalOnRootFolder"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -40,6 +41,10 @@
             {
                 "command": "extension.openNativeTerminal",
                 "title": "Open in native terminal"
+            },
+            {
+                "command": "extension.openNativeTerminalOnRootFolder",
+                "title": "Open in native terminal on the root folder"
             }
         ],
         "menus": {
@@ -47,26 +52,42 @@
                 {
                     "command": "extension.openNativeTerminal",
                     "when": "editorHasSelection"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder",
+                    "when": "editorHasSelection"
                 }
             ],
             "explorer/context": [
                 {
                     "command": "extension.openNativeTerminal"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder"
                 }
             ],
             "editor/context": [
                 {
                     "command": "extension.openNativeTerminal"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder"
                 }
             ],
             "editor/title": [
                 {
                     "command": "extension.openNativeTerminal"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder"
                 }
             ],
             "editor/title/context": [
                 {
                     "command": "extension.openNativeTerminal"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder"
                 }
             ]
         }
