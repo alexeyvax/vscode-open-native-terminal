@@ -2,7 +2,7 @@
 
 You can open native terminal with any path,
 just click right button on your mouse,
-then select option called **Open in native terminal**
+then select option called **Open in native terminal (current folder)** or **Open in native terminal (root folder)**
 
 ![example](https://github.com/alexeyvax/vscode-open-native-terminal/blob/master/assets/example.gif?raw=true)
 

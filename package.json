@@ -2,7 +2,7 @@
     "name": "vscode-open-native-terminal",
     "displayName": "open native terminal",
     "description": "Open native terminal for vscode",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "license": "MIT",
     "publisher": "alexeyvax",
     "author": {
@@ -40,11 +40,11 @@
         "commands": [
             {
                 "command": "extension.openNativeTerminal",
-                "title": "Open in native terminal"
+                "title": "Open in native terminal (current folder)"
             },
             {
                 "command": "extension.openNativeTerminalOnRootFolder",
-                "title": "Open in native terminal on the root folder"
+                "title": "Open in native terminal (root folder)"
             }
         ],
         "menus": {
