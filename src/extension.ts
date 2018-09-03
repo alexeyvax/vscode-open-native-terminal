@@ -3,7 +3,7 @@
 import * as vscode from 'vscode';
 import {
   compose,
-  checkCurrentOS,
+  detectOSAndLaunchTerminal,
   checkEmptyPath,
   getCorrectPath,
   checkExistingPath,
@@ -16,7 +16,7 @@ export function activate(context: vscode.ExtensionContext): void {
     'extension.openNativeTerminal',
     (e: vscode.Uri) => {
       compose(
-        checkCurrentOS,
+        detectOSAndLaunchTerminal,
         checkEmptyPath,
         getCorrectPath,
         checkExistingPath,
@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext): void {
     'extension.openNativeTerminalOnRootFolder',
     (e: vscode.Uri) => {
       compose(
-        checkCurrentOS,
+        detectOSAndLaunchTerminal,
         checkEmptyPath,
         getRootPath,
       )(e.fsPath);

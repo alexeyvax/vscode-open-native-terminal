@@ -3,6 +3,16 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 1.2.2   2018-09-03
+
+### Rename function
+- **checkCurrentOS** to **detectOSAndLaunchTerminal**
+
+### Added
+- **dictionary** collection
+
+
+
 ## 1.2.1   2018-09-01
 
 ### Rename

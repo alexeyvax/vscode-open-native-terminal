@@ -8,6 +8,17 @@ export const platforms: Platforms = {
   linux: 'linux',
 };
 
+export const dictionary: Dictionary = {
+  EXTENSION_NAME: 'open-native-terminal',
+  SETTINGS_NAME: 'use-default-terminal',
+  WRONG_PATH: 'Oops, the path is wrong, please try again',
+  EMPTY_PATH: 'Oops, the path is empty, please try again',
+};
+
 interface Platforms {
+  [key: string]: string;
+}
+
+interface Dictionary {
   [key: string]: string;
 }
