@@ -48,6 +48,7 @@ export const getCorrectPath = (path: string): string => {
 
 export const selectLinuxTerminal = (path: string): void => {
   const defaultTerminal = getSettings(dictionary.SETTINGS_NAME);
+
   if (defaultTerminal) {
     exec(`cd ${path} && ${defaultTerminal}`);
     return;

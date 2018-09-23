@@ -3,6 +3,11 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 1.3.0   2018-09-23
+
+### Add possibility to set default terminal on settings
+
+
 ## 1.2.2   2018-09-03
 
 ### Rename function
