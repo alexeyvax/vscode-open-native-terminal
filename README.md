@@ -19,7 +19,15 @@ use "open-native-terminal.use-default-terminal" with your favorite terminal:
 - **x-terminal-emulator**,
 - etc...
 
-for example:
+for example in settings:
+
+![settings](https://github.com/alexeyvax/vscode-open-native-terminal/blob/master/assets/settings.png?raw=true)
+
+Note: *if your terminal doesn't open, check the entered name and check that the needed terminal exists*
+
+
+for example in settings.json:
+
 ```
 {
   "open-native-terminal.use-default-terminal": "mate-terminal",
