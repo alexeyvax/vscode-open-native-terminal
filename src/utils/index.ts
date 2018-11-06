@@ -34,13 +34,15 @@ export const checkEmptyPath = (path: string): string|void => {
 };
 
 export const getCorrectPath = (path: string): string => {
+  const replacedValue = process.platform === platforms.win ? '" "' : '\\ ';
+
   if (fs.lstatSync(path).isDirectory()) {
-    return path.replace(/\s/g, '\\ ');
+    return path.replace(/\s/g, replacedValue);
   }
 
   const pathToParentDir = path.replace(/(\/|\\)?([^\/\\]*)(\/*|\*)$/, '');
   if (fs.lstatSync(pathToParentDir).isDirectory()) {
-    return pathToParentDir.replace(/\s/g, '\\ ');
+    return pathToParentDir.replace(/\s/g, replacedValue);
   }
 
   getCorrectPath(pathToParentDir);
