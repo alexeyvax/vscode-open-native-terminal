@@ -3,6 +3,14 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 1.4.0   2018-11-06
+
+### Fixed
+  - Fixed issue with spaces for Windows OS [issue](https://github.com/alexeyvax/vscode-open-native-terminal/issues/2)
+
+### Update to version 1.4.0
+
+
 ## 1.3.1   2018-09-23
 
 ### Update to version 1.3.1
