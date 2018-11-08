@@ -12,6 +12,12 @@ const getSettings = (name: string): string|void => {
   return settings.get(name);
 };
 
+const escapeSpaces = (path: string = ''): string => {
+  const replacedValue = process.platform === platforms.win ? '" "' : '\\ ';
+
+  return path.replace(/\s/g, replacedValue);
+};
+
 export const compose = (...fns) =>
   fns.reduceRight((prevFn, nextFn) =>
     (...args) => nextFn(prevFn(...args)),
@@ -34,15 +40,13 @@ export const checkEmptyPath = (path: string): string|void => {
 };
 
 export const getCorrectPath = (path: string): string => {
-  const replacedValue = process.platform === platforms.win ? '" "' : '\\ ';
-
   if (fs.lstatSync(path).isDirectory()) {
-    return path.replace(/\s/g, replacedValue);
+    return escapeSpaces(path);
   }
 
   const pathToParentDir = path.replace(/(\/|\\)?([^\/\\]*)(\/*|\*)$/, '');
   if (fs.lstatSync(pathToParentDir).isDirectory()) {
-    return pathToParentDir.replace(/\s/g, replacedValue);
+    return escapeSpaces(pathToParentDir);
   }
 
   getCorrectPath(pathToParentDir);
@@ -82,7 +86,7 @@ export const detectOSAndLaunchTerminal = (path: string): void => {
 
 export const getRootPath = (path: string): string => {
   if (vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders[0].uri) {
-    return vscode.workspace.workspaceFolders[0].uri.fsPath;
+    return escapeSpaces(vscode.workspace.workspaceFolders[0].uri.fsPath);
   }
 
   return getCorrectPath(path);

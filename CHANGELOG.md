@@ -3,6 +3,12 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 1.4.1   2018-11-08
+
+### Fixed
+  - Fixed issue with spaces for root path for Windows OS [issue](https://github.com/alexeyvax/vscode-open-native-terminal/issues/2)
+
+
 ## 1.4.0   2018-11-06
 
 ### Fixed
