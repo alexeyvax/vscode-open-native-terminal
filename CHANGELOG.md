@@ -3,6 +3,13 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+
+## 1.5.0   2018-12-16
+
+### Feature
+  - added an Console Icon on the tabs bar [issue](https://github.com/alexeyvax/vscode-open-native-terminal/issues/15)
+
+
 ## 1.4.1   2018-11-08
 
 ### Fixed
