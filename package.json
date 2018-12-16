@@ -1,124 +1,124 @@
 {
-  "name": "vscode-open-native-terminal",
-  "displayName": "open native terminal",
-  "description": "Open native terminal for vscode",
-  "version": "1.4.2",
-  "license": "MIT",
-  "publisher": "alexeyvax",
-  "author": {
-    "name": "alexeyvax",
-    "email": "alexeyvax1990@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alexeyvax/vscode-open-native-terminal.git"
-  },
-  "homepage": "https://github.com/alexeyvax/vscode-open-native-terminal",
-  "bugs": {
-    "url": "https://github.com/alexeyvax/vscode-open-native-terminal/issues"
-  },
-  "icon": "assets/icon_nt.png",
-  "keywords": [
-    "open in native terminal",
-    "open in terminal",
-    "open terminal",
-    "native terminal",
-    "terminal"
-  ],
-  "engines": {
-    "vscode": "^1.19.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:extension.openNativeTerminal",
-    "onCommand:extension.openNativeTerminalOnRootFolder"
-  ],
-  "main": "./out/extension",
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Open native terminal configuration",
-      "properties": {
-        "open-native-terminal.use-default-terminal": {
-          "type": "string",
-          "default": "",
-          "description": "You can set terminal by default"
-        }
-      }
+    "name": "vscode-open-native-terminal",
+    "displayName": "open native terminal",
+    "description": "Open native terminal for vscode",
+    "version": "1.5.0",
+    "license": "MIT",
+    "publisher": "alexeyvax",
+    "author": {
+        "name": "alexeyvax",
+        "email": "alexeyvax1990@gmail.com"
     },
-    "commands": [
-      {
-        "command": "extension.openNativeTerminal",
-        "title": "Open in native terminal (current folder)"
-      },
-      {
-        "command": "extension.openNativeTerminalOnRootFolder",
-        "title": "Open in native terminal (root folder)",
-        "icon": {
-          "light": "./assets/icon-light.png",
-          "dark": "./assets/icon-dark.png"
-        }
-      }
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alexeyvax/vscode-open-native-terminal.git"
+    },
+    "homepage": "https://github.com/alexeyvax/vscode-open-native-terminal",
+    "bugs": {
+        "url": "https://github.com/alexeyvax/vscode-open-native-terminal/issues"
+    },
+    "icon": "assets/icon_nt.png",
+    "keywords": [
+        "open in native terminal",
+        "open in terminal",
+        "open terminal",
+        "native terminal",
+        "terminal"
     ],
-    "menus": {
-      "commandPalette": [
-        {
-          "command": "extension.openNativeTerminal",
-          "when": "editorHasSelection"
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.openNativeTerminal",
+        "onCommand:extension.openNativeTerminalOnRootFolder"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Open native terminal configuration",
+            "properties": {
+                "open-native-terminal.use-default-terminal": {
+                    "type": "string",
+                    "default": "",
+                    "description": "You can set terminal by default"
+                }
+            }
         },
-        {
-          "command": "extension.openNativeTerminalOnRootFolder",
-          "when": "editorHasSelection"
+        "commands": [
+            {
+                "command": "extension.openNativeTerminal",
+                "title": "Open in native terminal (current folder)"
+            },
+            {
+                "command": "extension.openNativeTerminalOnRootFolder",
+                "title": "Open in native terminal (root folder)",
+                "icon": {
+                    "light": "./assets/icon-light.png",
+                    "dark": "./assets/icon-dark.png"
+                }
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "extension.openNativeTerminal",
+                    "when": "editorHasSelection"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder",
+                    "when": "editorHasSelection"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "extension.openNativeTerminal"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder"
+                }
+            ],
+            "editor/context": [
+                {
+                    "command": "extension.openNativeTerminal"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder"
+                }
+            ],
+            "editor/title": [
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder",
+                    "group": "navigation"
+                }
+            ],
+            "editor/title/context": [
+                {
+                    "command": "extension.openNativeTerminal"
+                },
+                {
+                    "command": "extension.openNativeTerminalOnRootFolder"
+                }
+            ]
         }
-      ],
-      "explorer/context": [
-        {
-          "command": "extension.openNativeTerminal"
-        },
-        {
-          "command": "extension.openNativeTerminalOnRootFolder"
-        }
-      ],
-      "editor/context": [
-        {
-          "command": "extension.openNativeTerminal"
-        },
-        {
-          "command": "extension.openNativeTerminalOnRootFolder"
-        }
-      ],
-      "editor/title": [
-        {
-          "command": "extension.openNativeTerminalOnRootFolder",
-          "group": "navigation"
-        }
-      ],
-      "editor/title/context": [
-        {
-          "command": "extension.openNativeTerminal"
-        },
-        {
-          "command": "extension.openNativeTerminalOnRootFolder"
-        }
-      ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "fs": "0.0.1-security"
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
-  },
-  "devDependencies": {
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.6",
-    "@types/node": "^7.0.43",
-    "@types/mocha": "^2.2.42"
-  },
-  "dependencies": {
-    "fs": "0.0.1-security"
-  }
 }
