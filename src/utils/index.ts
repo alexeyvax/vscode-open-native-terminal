@@ -52,7 +52,7 @@ export const getCorrectPath = (path: string): string => {
   getCorrectPath(pathToParentDir);
 };
 
-export const selectLinuxTerminal = (path: string): void => {
+export const runLinuxTerminal = (path: string): void => {
   const defaultTerminal = getSettings(dictionary.SETTINGS_NAME);
 
   if (defaultTerminal) {
@@ -73,14 +73,20 @@ export const selectLinuxTerminal = (path: string): void => {
   }
 };
 
+export const runMacOSTerminal = (path: string): void => {
+  const defaultTerminal = getSettings(dictionary.SETTINGS_NAME);
+
+  exec(`open -a ${defaultTerminal || 'Terminal.app'} "${path}"`);
+}
+
 export const detectOSAndLaunchTerminal = (path: string): void => {
   switch(process.platform) {
     case platforms.mac:
-      exec(`open -a Terminal.app "${path}"`);
+      runMacOSTerminal(path);
     case platforms.win:
       exec(`start /D ${path} "%cd%" cmd`);
     default:
-      selectLinuxTerminal(path);
+      runLinuxTerminal(path);
   }
 };
 
