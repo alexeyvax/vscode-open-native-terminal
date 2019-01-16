@@ -4,6 +4,12 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 
+## 1.6.0   2019-01-16
+
+### Feature
+  - Added possibility to set default terminal for Mac OS [issue](https://github.com/alexeyvax/vscode-open-native-terminal/issues/17)
+
+
 ## 1.5.0   2018-12-16
 
 ### Feature
