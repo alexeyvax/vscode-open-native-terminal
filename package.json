@@ -23,6 +23,7 @@
         "open in terminal",
         "open terminal",
         "native terminal",
+        "external terminal",
         "terminal"
     ],
     "engines": {
@@ -57,8 +58,8 @@
                 "command": "extension.openNativeTerminalOnRootFolder",
                 "title": "Open in native terminal (root folder)",
                 "icon": {
-                    "light": "./assets/icon-light.png",
-                    "dark": "./assets/icon-dark.png"
+                    "light": "assets/icon-light.png",
+                    "dark": "assets/icon-dark.png"
                 }
             }
         ],
@@ -113,10 +114,10 @@
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
+        "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.29"
     },
     "dependencies": {
         "fs": "0.0.1-security"
