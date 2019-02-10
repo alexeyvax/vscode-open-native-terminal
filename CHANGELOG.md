@@ -4,6 +4,12 @@ All notable changes to the "vscode-open-native-terminal" extension will be docum
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 
+## 1.6.1   2019-02-10
+
+### Fix
+  - fixed vulnerabilities issues in dependencies
+
+
 ## 1.6.0   2019-01-16
 
 ### Feature
