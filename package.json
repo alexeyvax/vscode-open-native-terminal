@@ -46,6 +46,21 @@
                     "type": "string",
                     "default": "",
                     "description": "You can set terminal by default"
+                },
+                "open-native-terminal.show-current-folder-option": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Open terminal in current folder option is visible"
+                },
+                "open-native-terminal.show-root-folder-option": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Open terminal in root folder option is visible"
+                },
+                "open-native-terminal.show-terminal-icon": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Open terminal icon is visible in title bar"
                 }
             }
         },
@@ -67,41 +82,48 @@
             "commandPalette": [
                 {
                     "command": "extension.openNativeTerminal",
-                    "when": "editorHasSelection"
+                    "when": "editorHasSelection && config.open-native-terminal.show-current-folder-option"
                 },
                 {
                     "command": "extension.openNativeTerminalOnRootFolder",
-                    "when": "editorHasSelection"
+                    "when": "editorHasSelection && config.open-native-terminal.show-root-folder-option"
                 }
             ],
             "explorer/context": [
                 {
-                    "command": "extension.openNativeTerminal"
+                    "command": "extension.openNativeTerminal",
+                    "when": "config.open-native-terminal.show-current-folder-option"
                 },
                 {
-                    "command": "extension.openNativeTerminalOnRootFolder"
+                    "command": "extension.openNativeTerminalOnRootFolder",
+                    "when": "config.open-native-terminal.show-root-folder-option"
                 }
             ],
             "editor/context": [
                 {
-                    "command": "extension.openNativeTerminal"
+                    "command": "extension.openNativeTerminal",
+                    "when": "config.open-native-terminal.show-current-folder-option"
                 },
                 {
-                    "command": "extension.openNativeTerminalOnRootFolder"
+                    "command": "extension.openNativeTerminalOnRootFolder",
+                    "when": "config.open-native-terminal.show-root-folder-option"
                 }
             ],
             "editor/title": [
                 {
                     "command": "extension.openNativeTerminalOnRootFolder",
+                    "when": "config.open-native-terminal.show-terminal-icon",
                     "group": "navigation"
                 }
             ],
             "editor/title/context": [
                 {
-                    "command": "extension.openNativeTerminal"
+                    "command": "extension.openNativeTerminal",
+                    "when": "config.open-native-terminal.show-current-folder-option"
                 },
                 {
-                    "command": "extension.openNativeTerminalOnRootFolder"
+                    "command": "extension.openNativeTerminalOnRootFolder",
+                    "when": "config.open-native-terminal.show-root-folder-option"
                 }
             ]
         }
